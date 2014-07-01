@@ -25,10 +25,6 @@
     "prepublish": "make prepublish"
   },
   "dependencies": {
-    "mocha": "~1.17.1",
-    "sinon": "~1.9.0",
-    "underscore": "~1.6.0",
-    "promises-aplus-tests": "~2.0.4"
   },
   "devDependencies": {
     "browserify": "^4.2.0",
