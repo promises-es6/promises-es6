@@ -21,8 +21,8 @@
     "promises-es6-tests": "lib/cli.js"
   },
   "scripts": {
-    "lint": "jshint lib",
-    "prepublish": "make prepublish"
+    "lint": "make lint",
+    "bundle": "make bundle"
   },
   "dependencies": {
   },
