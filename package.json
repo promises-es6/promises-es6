@@ -21,7 +21,7 @@
   },
   "scripts": {
     "lint": "jshint lib",
-    "prepublish": "browserify tests/*.js -o bundle/promises-es6-tests.js"
+    "prepublish": "make prepublish"
   },
   "dependencies": {
     "mocha": "~1.17.1",
