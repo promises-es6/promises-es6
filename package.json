@@ -14,7 +14,7 @@
   "license": "ECMA",
   "repository": {
     "type": "git",
-    "url": "git://github.com/smikes/native-promise-only.git"
+    "url": "git://github.com/promises-es6/promises-es6.git"
   },
   "main": "lib/programmaticRunner.js",
   "bin": {
