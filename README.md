@@ -11,13 +11,12 @@ however, until it is incorporated into test262, it should **NOT** be
 regarded as a definitive claim of what the ES6 standard requires.
 
 These tests also do **NOT** supersede the promises-aplus tests.  These
-tests are orthogonal to promises-aplus/pormises-tests.  For best
-results, run both sets of tests.  This is done by default by the included 
-test case `test/tests/zz_aplus_suite`.
+tests are orthogonal to promises-aplus/promises-tests.  You should run both
+sets of tests.
 
 ## How To Run
 
-The tests run in a Node.js environment.
+The tests run in a Node.js environment or in the browser.
 
 ### Adapters
 
@@ -26,13 +25,14 @@ interface.  This is an extension of the [Promises/A+ test
 adapter](https://github.com/promises-aplus/promises-tests#adapters),
 with the following additional exports:
 
-- `defineGlobalPromise(globalScope)`: ensures that `globalScope.Promise` is the implementation to be tested
+- `defineGlobalPromise(globalScope)`: ensures that `globalScope.Promise` is the implementation to be tested and
+                                      ensures that `globalScope.assert` behaves like the node assert library
 - `removeGlobalPromise(globalScope)`: removes `Promise` from `globalScope`
 
-When a native (browser or node) implementation of Promises is being tested, these functions can have 
+When a native (browser or node) implementation of Promises is being tested, these functions can have
 empty bodies (it is fine for these to be no-ops).
 
-When a polyfill or other Javascript implementation of Promises is being tested, these functions should 
+When a polyfill or other Javascript implementation of Promises is being tested, these functions should
 modify the passed-in `globalScope` object, not the `global` object.
 
 ### From the CLI
@@ -73,5 +73,22 @@ promisesES6Tests(adapter, function (err) {
 });
 ```
 
-## Structure of Tests
+### In The Browser
 
+The tests are collected into a single file, `bundle/promises-es6-tests`.
+
+
+```json
+{
+    "devDependencies": {
+        "promises-es6-tests": "*"
+    },
+}
+```
+
+```html
+   <!-- set up mocha and assert -->
+   <script src="node_modules/promises-es6-tests/bundle/promises-es6-tests.js></script>
+```
+
+## Structure of Tests
