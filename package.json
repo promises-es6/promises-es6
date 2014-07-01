@@ -6,7 +6,7 @@
     "unit test",
     "ecma-262"
   ],
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": {
     "name": "Sam Mikes",
     "email": "smikes@cubane.com"
@@ -24,8 +24,7 @@
     "lint": "make lint",
     "bundle": "make bundle"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "browserify": "^4.2.0",
     "jshint": "~2.4.4",
