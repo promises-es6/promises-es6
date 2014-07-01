@@ -3,9 +3,10 @@
   "description": "Compliance test suite for ECMA-262 Promises",
   "keywords": [
     "promises",
+    "unit test",
     "ecma-262"
   ],
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": {
     "name": "Sam Mikes",
     "email": "smikes@cubane.com"
