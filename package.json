@@ -11,6 +11,11 @@
     "name": "Sam Mikes",
     "email": "smikes@cubane.com"
   },
+  "files": [
+    "lib",
+    "bundle",
+    "tests"
+  ],
   "license": "ECMA",
   "repository": {
     "type": "git",
