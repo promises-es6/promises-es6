@@ -4,14 +4,14 @@ JSTESTS=$(shell find tests -name '*.js' -print)
 default: bundle
 
 bundle: 
-	browserify $(JSTESTS) -o bundle/promises-es6-tests.js
+	./node_modules/.bin/browserify $(JSTESTS) -o bundle/promises-es6-tests.js
 
 prepublish: no-dos-endings bundle
 
 lint: jslint 
 
 jslint:
-	jslint --terse $(JSSOURCES)
+	./node_modules/.bin/jslint --terse $(JSSOURCES)
 
 no-dos-endings:
 	file $(JSSOURCES) | grep -v CRLF > /dev/null
