@@ -1,4 +1,4 @@
-JSSOURCES=$(shell find lib tests -name '*.js' -print)
+JSSOURCES=$(shell find lib -name '*.js' -print)
 JSTESTS=$(shell find tests -name '*.js' -print)
 
 default: bundle
