@@ -1,5 +1,7 @@
 "use strict";
-
+// browser compatibility: old browsers don't have strict mode, so skip
+// a few tests which rely on strict mode behavior for `this`.
+var hasStrictMode = (function() { return this===null; }).call(null);
 
 describe("25.4.3 The Promise Constructor", function () {
     it("is the initial value of the Promise property of the global object", function () {
@@ -99,7 +101,9 @@ describe("25.4.3.1.1 InitializePromise ( promise, executor )", function () {
             savedThis = this;
         });
 
-        assert.equal(undefined, savedThis);
+        if (hasStrictMode) {
+            assert.equal(undefined, savedThis);
+        }
     });
     it("catches exceptions thrown from executor and turns them into reject", function (done) {
         // if completion is an abrupt completion
@@ -110,7 +114,9 @@ describe("25.4.3.1.1 InitializePromise ( promise, executor )", function () {
         });
 
         p.then(undefined, function (err) {
-            assert.equal(undefined, this);
+            if (hasStrictMode) {
+                assert.equal(undefined, this);
+            }
             assert.equal(errorObject, err);
         }).then(done).catch(done);
 
