@@ -31,7 +31,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "browserify": "^4.2.0",
+    "browserify": "~4.2.0",
     "jshint": "~2.4.4",
     "jslint": "~0.5.2"
   }
