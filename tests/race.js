@@ -156,3 +156,23 @@ describe("25.4.4.3 Promise.race with 2-element array", function () {
         resolveP1(1);
     });
 });
+
+describe("25.4.4.3 Promise.race with iterable protocol", function () {
+    it("should resolve ", function () {
+        // Fake an es5 compatible es6 generator.
+        var arr = {
+            list: [3, 2, 1],
+            next: function () {
+                return {
+                    done: !this.list.length,
+                    value: this.list.pop()
+                };
+            }
+        };
+        arr[Symbol.iterator] = function () { return this; };
+
+        return Promise.race(arr).then(function (result) {
+            assert.deepEqual(1, result);
+        });
+    });
+});
