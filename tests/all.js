@@ -203,5 +203,25 @@ describe("25.4.4.1 with 2-element array", function () {
     });
 });
 
+describe("25.4.4.1 Promise.all with iterable protocol", function () {
+    it("should resolve ", function () {
+        // Fake an es5 compatible es6 generator.
+        var arr = {
+            list: [3, 2, 1],
+            next: function () {
+                return {
+                    done: !this.list.length,
+                    value: this.list.pop()
+                };
+            }
+        };
+        arr[Symbol.iterator] = function () { return this; };
+
+        return Promise.all(arr).then(function (result) {
+            assert.deepEqual([1, 2, 3], result);
+        });
+    });
+});
+
 // not explicitly addressed: 25.4.4.1.1 Promise.all Resolve Element Functions
 // these are not visible from userland js
